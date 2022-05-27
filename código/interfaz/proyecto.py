@@ -84,7 +84,27 @@ irrigacion_final_label.place(x=600, y=425)
 temp_final_label = Label( root, text="Hora final temperatura:", font=('Sans 12'), bg="white")
 temp_final_label.place(x=600, y=525)
 
+#imagenes iniciales 
 
+termometro = PhotoImage(file = "imagenes/10grados.png")
+termometro = termometro.subsample(2)
+termometro_img = Label(root, image = termometro)
+#termometro_img =termometro.subsample(2)
+#foco_img.configure(bg = background)
+termometro_img.place(x=300, y=60)
+
+
+foco = PhotoImage(file = "imagenes/foco0.png")
+foco = foco.subsample(2)
+foco_img = Label(root, image = foco)
+#foco_img.configure(bg = background)
+foco_img.place(x=300, y=280)
+
+vent = PhotoImage(file = "imagenes/ventilador.png")
+vent = vent.subsample(4)
+vent_img = Label(root, image = vent)
+#foco_img.configure(bg = background)
+vent_img.place(x=850, y=280)
 
 
 while(1):
@@ -136,8 +156,17 @@ while(1):
 	    temp = '0'
 	    TempInicial.set(temp)
 	    temp = int(temp)
-    
-    
+
+	    termometro = PhotoImage(file = "imagenes/10grados.png")
+	    termometro = termometro.subsample(2)
+	    termometro_img = Label(root, image = termometro)
+	    termometro_img.place(x=300, y=60)
+
+	    foco = PhotoImage(file = "imagenes/foco0.png")
+	    foco = foco.subsample(2)
+	    foco_img = Label(root, image = foco)
+	    foco_img.place(x=300, y=280)
+
     else:
 	    #Valores de firebase
 	    HoraIF = StringVar()
@@ -168,6 +197,25 @@ while(1):
 	    PotRad.set(PotRad_2["value"])
 	    powerFactor.set(powerFactor_2)
 	    tiempoDisparo.set(tiempoDisparo_2)
+	    Pot = int(PotRad_2["value"])
+
+	    if (Pot == 0):
+	    	foco = PhotoImage(file = "imagenes/foco0.png")
+	    	foco = foco.subsample(2)
+	    	foco_img = Label(root, image = foco)
+	    	foco_img.place(x=300, y=280)
+	    else:
+	    	if (Pot > 0) and (Pot <= 50):
+	    		foco = PhotoImage(file = "imagenes/foco50.png")
+	    		foco = foco.subsample(2)
+	    		foco_img = Label(root, image = foco)
+	    		foco_img.place(x=300, y=280)
+	    	else:
+	    		if  (Pot > 50) and (Pot <= 100):    		
+	    			foco = PhotoImage(file = "imagenes/foco100.png")
+	    			foco = foco.subsample(2)
+	    			foco_img = Label(root, image = foco)
+	    			foco_img.place(x=300, y=280)
 
 
 
@@ -187,8 +235,33 @@ while(1):
 	    TempInicial = StringVar()
 	    temp = tempPID(temp) 
 	    TempInicial.set(temp)
-	    temp = int(temp) 
-    
+	    temp = int(temp)
+	    temp_A = (firebase.get('/valores/temperaturaInicial',''))
+	    temp2 = int(temp_A["value"]) 
+
+	    if (temp2 >= 10) and (temp2 < 20):
+	    	termometro = PhotoImage(file = "imagenes/10grados.png")
+	    	termometro = termometro.subsample(2)
+	    	termometro_img = Label(root, image = termometro)
+	    	termometro_img.place(x=300, y=60)
+	    else:
+	    	if (temp2 >= 20) and (temp2 < 30):
+	    		termometro = PhotoImage(file = "imagenes/20grados.png")
+	    		termometro = termometro.subsample(2)
+	    		termometro_img = Label(root, image = termometro)
+	    		termometro_img.place(x=300, y=60)
+	    	else:
+	    		if  (temp2 == 30):    		
+	    			termometro = PhotoImage(file = "imagenes/30grados.png")
+	    			termometro = termometro.subsample(2)
+	    			termometro_img = Label(root, image = termometro)
+	    			termometro_img.place(x=300, y=60)
+
+
+
+    	
+
+
     temp_num = Entry(root, textvariable=TempInicial, font=('Sans 12'), bg="white")
     temp_num.place(x=50, y=125)
     
