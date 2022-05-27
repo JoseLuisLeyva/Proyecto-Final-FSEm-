@@ -159,10 +159,10 @@ def focoIncandesente(potencia):
 
     #Usamos a 60Hz
     f=60
-    tiempoDisparo=powerFactor[potencia]/(2*math.pi*f)
+    tiempoDisparo=(powerFactor[potencia]/(2*math.pi*f))*1000
     
 
-    return powerFactor[potencia],tiempoDisparo,potencia
+    return powerFactor[potencia],tiempoDisparo
 
 #Control de temperatura 
 def tempPID(temp):
