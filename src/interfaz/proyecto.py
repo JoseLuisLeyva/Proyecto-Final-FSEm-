@@ -1,4 +1,13 @@
 # !/usr/bin/python3
+##################################################
+#
+# Autor: Cortez Ibarra Derek 
+#       Leyva Pérez José Luis
+#      Muñoz Garcia Arturo
+# License: MIT
+#
+###################################################-->
+# !/usr/bin/python3
 from tkinter import *
 from calculos import *
 from firebase import firebase

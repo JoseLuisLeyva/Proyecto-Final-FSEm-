@@ -1,3 +1,12 @@
+# !/usr/bin/python3
+##################################################
+#
+# Autor: Cortez Ibarra Derek 
+#       Leyva Pérez José Luis
+#      Muñoz Garcia Arturo
+# License: MIT
+#
+###################################################-->
 import math
 from firebase import firebase 
 
