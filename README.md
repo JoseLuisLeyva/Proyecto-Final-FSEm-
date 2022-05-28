@@ -9,7 +9,10 @@ Para poder hacer uso de este proyecto es necesario contar con una maquina con Py
       <li>Munoz Garcia Arturo</li>
       <li>Leyva Pérez José Luis</li>
   </ul>
+  
+ 
 # Sobre nosotros
+
 Actualmente todos los contribuidores al proyectos somos estudiante en los últimos semestres de la carrera de ingeniería en computación en la UNAM.
 
 # Facultad de Ingeniería, UNAM - Semestre 2022-2
